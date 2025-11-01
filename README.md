@@ -2,17 +2,43 @@
 
 This repository contains a Docker setup for running Firebase Emulators locally.
 
-# Reference
-https://firebase.google.com/docs/emulator-suite
+## Quick Reference
+- Documentation [Firebase emulator suite official page](https://firebase.google.com/docs/emulator-suite)
+- GitHub repository [https://github.com/ste80pa/firebase](https://github.com/ste80pa/firebase)
 
-## Quick Start
+## Initial Setup
 
-1. Initial Setup
+To initialize Firebase in your project:
+
+### Login
+
+```bash
+docker run -it -v $(pwd)/app:/app -p 9005:9005 -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=(id -u) ste80pa/firebase login
+```
+
+### Init
+
+```bash
+docker run -it -v $(pwd)/app:/app  -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=$(id -u) ste80pa/firebase init
+```
+
+### Run emulators
+
+```bash
+docker run -v $(pwd)/app:/app -p 4000:4000 -p 9099:9099 -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=(id -u) ste80pa/firebase
+```
+
+## Manual setup
+
+### Manually create configration files
+
 ```bash
 mkdir app
+cd app
 touch firebase.json .firebaserc storage.rules
 ```
-1. firebaserc
+
+firebaserc
 
 ```json
 {
@@ -23,6 +49,7 @@ touch firebase.json .firebaserc storage.rules
 ```
 
 firebase.json
+
 ```json
 {
   "storage": {
@@ -30,15 +57,19 @@ firebase.json
   },
   "emulators": {
     "auth": {
+      "host": "0.0.0.0",
       "port": 9099
     },
     "firestore": {
+      "host": "0.0.0.0",
       "port": 9199
     },
     "storage": {
+      "host": "0.0.0.0",
       "port": 9299
     },
     "ui": {
+      "host": "0.0.0.0",
       "enabled": true
     },
     "singleProjectMode": true
@@ -60,19 +91,7 @@ service firebase.storage {
 }
 ```
 
-2. Run the container:
+### Run the container
 ```bash
-docker run -v $(pwd)/app:/app --network=host -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=(id -u) ste80pa/firebase
+docker run -v $(pwd)/app:/app -p 4000:4000 -p 9199:9199 -p 4000:4000 -p 9299:9299 -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=(id -u) ste80pa/firebase
 ```
-
-## Initial Setup
-
-To initialize Firebase in your project:
-
-1. Clone this repository
-2. Run the container with volume mapping:
-```bash
-docker run -v $(pwd):/app ste80pa/firebase firebase init
-```
-
-This will create the necessary Firebase configuration files in your project directory.
