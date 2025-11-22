@@ -1,10 +1,13 @@
+![Docker Pulls](https://img.shields.io/docker/pulls/ste80pa/firebase)
+
 # Firebase Emulator Docker Setup
 
-This repository contains a Docker setup for running Firebase Emulators locally.
+This repository contains a Docker setup for running Firebase Emulators locally. 
 
 ## Quick Reference
 - Documentation [Firebase emulator suite official page](https://firebase.google.com/docs/emulator-suite)
 - GitHub repository [https://github.com/ste80pa/firebase](https://github.com/ste80pa/firebase)
+- Docker Hub [https://hub.docker.com/r/ste80pa/firebase](https://hub.docker.com/r/ste80pa/firebase)
 
 ## Initial Setup
 
