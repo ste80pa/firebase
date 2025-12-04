@@ -6,6 +6,7 @@ This repository contains a Docker setup for running Firebase Emulators locally.
 
 ## Quick Reference
 - Documentation [Firebase emulator suite official page](https://firebase.google.com/docs/emulator-suite)
+- Firebase Tools GitHub repository [https://github.com/firebase/firebase-tools/releases](https://github.com/firebase/firebase-tools/releases)
 - GitHub repository [https://github.com/ste80pa/firebase](https://github.com/ste80pa/firebase)
 - Docker Hub [https://hub.docker.com/r/ste80pa/firebase](https://hub.docker.com/r/ste80pa/firebase)
 
