@@ -1,6 +1,6 @@
 FROM debian:trixie-slim
 
-ARG FIREBASE_VERSION=15.9.1
+ARG FIREBASE_VERSION=15.10.0
 
 VOLUME ["/app"]
 
