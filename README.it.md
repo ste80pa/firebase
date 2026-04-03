@@ -1,34 +1,34 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/ste80pa/firebase)
 
-**Languages:**
+**Lingue:**
 - [English](README.md)
 - [Italiano](README.it.md)
 
-# Firebase Emulator Docker Setup
+# Setup Docker per Firebase Emulator
 
-This repository contains a Docker setup for running Firebase Emulators locally. 
+Questo repository contiene una configurazione Docker per eseguire Firebase Emulator localmente utilizzando gli stessi permessi dell'utente corrente.
 
-## Quick Reference
-- Documentation [Firebase emulator suite official page](https://firebase.google.com/docs/emulator-suite)
-- Firebase Tools GitHub repository [https://github.com/firebase/firebase-tools/releases](https://github.com/firebase/firebase-tools/releases)
-- GitHub repository [https://github.com/ste80pa/firebase](https://github.com/ste80pa/firebase)
+## Riferimenti Rapidi
+- Documentazione [Pagina ufficiale Firebase emulator suite](https://firebase.google.com/docs/emulator-suite)
+- Repository GitHub Firebase Tools [https://github.com/firebase/firebase-tools/releases](https://github.com/firebase/firebase-tools/releases)
+- Repository GitHub [https://github.com/ste80pa/firebase](https://github.com/ste80pa/firebase)
 - Docker Hub [https://hub.docker.com/r/ste80pa/firebase](https://hub.docker.com/r/ste80pa/firebase)
 
-## Supported Platforms
+## Piattaforme Supportate
 
 - `linux/amd64`
 - `linux/arm64`
 - `linux/arm/v7`
 - `linux/arm/v6`
 
-## Initial Setup
+## Configurazione Iniziale
 
-To initialize Firebase in your project:
+Per inizializzare Firebase nel tuo progetto:
 
 ### Login
 
 ```bash
-docker run -it -v $(pwd)/app:/app -p 9005:9005 -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=(id -u) ste80pa/firebase login
+docker run -it -v $(pwd)/app:/app -p 9005:9005 -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=$(id -u) ste80pa/firebase login
 ```
 
 ### Init
@@ -37,15 +37,16 @@ docker run -it -v $(pwd)/app:/app -p 9005:9005 -e FIREBASE_EMULATOR_USER=$(id -n
 docker run -it -v $(pwd)/app:/app  -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=$(id -u) ste80pa/firebase init
 ```
 
+
 ### Run emulators
 
 ```bash
 docker run -v $(pwd)/app:/app -p 4000:4000 -p 9099:9099 -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=(id -u) ste80pa/firebase
 ```
 
-## Manual setup
+## Configurazione manuale
 
-### Manually create configration files
+### Creazione manuale dei file di configurazione
 
 ```bash
 mkdir app
@@ -106,7 +107,7 @@ service firebase.storage {
 }
 ```
 
-### Run the container
+### Esegui il container
 ```bash
 docker run -v $(pwd)/app:/app -p 4000:4000 -p 9199:9199 -p 4000:4000 -p 9299:9299 -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=(id -u) ste80pa/firebase
 ```
