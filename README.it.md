@@ -18,8 +18,6 @@ Questo repository contiene una configurazione Docker per eseguire Firebase Emula
 
 - `linux/amd64`
 - `linux/arm64`
-- `linux/arm/v7`
-- `linux/arm/v6`
 
 ## Configurazione Iniziale
 
