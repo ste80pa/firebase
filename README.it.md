@@ -39,7 +39,7 @@ docker run -it -v $(pwd)/app:/app  -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBA
 ### Run emulators
 
 ```bash
-docker run -v $(pwd)/app:/app -p 4000:4000 -p 9099:9099 -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=(id -u) ste80pa/firebase
+docker run -v $(pwd)/app:/app -p 4000:4000 -p 9099:9099 -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=$(id -u) ste80pa/firebase
 ```
 
 ## Configurazione manuale
@@ -107,5 +107,5 @@ service firebase.storage {
 
 ### Esegui il container
 ```bash
-docker run -v $(pwd)/app:/app -p 4000:4000 -p 9199:9199 -p 4000:4000 -p 9299:9299 -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=(id -u) ste80pa/firebase
+docker run -v $(pwd)/app:/app -p 4000:4000 -p 9199:9199 -p 4000:4000 -p 9299:9299 -e FIREBASE_EMULATOR_USER=$(id -nu) -e FIREBASE_EMULATOR_UID=$(id -u) ste80pa/firebase
 ```
